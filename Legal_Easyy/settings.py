@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-*szaq(eflr)146z=1(iwas^dt+@75ud3mv4y*5x4bd=o0ihr7q
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_ORIGIN', 'https://legal-easyy-s3uj.onrender.com')]
+CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_ORIGIN', 'https://precursor-legal-easyy.onrender.com')]
 
 
 # Application definition
