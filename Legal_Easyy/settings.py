@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-*szaq(eflr)146z=1(iwas^dt+@75ud3mv4y*5x4bd=o0ihr7q
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_ORIGIN', 'https://precursor-legal-easyy.onrender.com')]
+CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_ORIGIN', 'https://legal-easyy-1-2biy.onrender.com')]
 
 
 # Application definition
@@ -50,8 +50,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
-
+STORAGES = {
+    "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    },
+}
 ROOT_URLCONF = 'Legal_Easyy.urls'
 
 TEMPLATES = [
@@ -118,6 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"        # <-- collectstatic target
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
